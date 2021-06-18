@@ -4,7 +4,7 @@ import juego.*
 object mario {
 	var property sigueVivo = true
 	var property puntos = 3
-	var property position = game.at(1, 1)
+	var property position = game.at(1, 3)
 	var property positionOriginal=null
 	var property imagen = "marioBross1.0.png"
 	var property posicionAnterior = null

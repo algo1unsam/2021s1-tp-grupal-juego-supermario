@@ -9,7 +9,7 @@ object juego {
 		game.title("Mario Bro")
 		game.height(16)
 		game.width(25)
-		game.ground("fondonivel1.png")
+		game.boardGround("fondonivel1.png")
 		
 				//	AGREGO A Mario Bross
 		game.addVisual(mario)
@@ -60,6 +60,8 @@ object nivel1{
 		var posPiso = []
 		var posPared = []
 		(0 .. ancho).forEach{ n => posPiso.add(game.at(n, 0))} // bordeAbajo
+		(0 .. ancho).forEach{ n => posPiso.add(game.at(n, 1))}
+		(0 .. ancho).forEach{ n => posPiso.add(game.at(n, 2))}
 		(0 .. largo).forEach{ n => posPared.add(game.at(0, n))} // bordeIzq 
 		(0 .. largo).forEach{ n => posPared.add(game.at(ancho, n))} // bordeDer
 		posPiso.forEach{ p => juego.dibujar(new PisoNivel1(position = p))}

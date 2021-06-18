@@ -11,7 +11,7 @@ class Piso {
 
 }
 class PisoNivel1 inherits Piso{
-	override method imagen()="ladrillonivel1.png"
+	override method imagen()="piso1.png"
 	override method choque(alguien){
 		if (alguien.posicionAnterior() == derecha) {
 			alguien.position(alguien.position().left(1))
