@@ -18,13 +18,15 @@ class ParedDeLadrillos {
 }
 class LadrillosPared inherits ParedDeLadrillos { 
 
-	override method image() = "paredInvisible.png"
+	override method image() = "ladrillonivel1.png"
 
 	override method chocaCon(alguien) {
 		if (alguien.posicionAnterior() == derecha) {
 			alguien.position(alguien.position().left(1))
-		} else {
+		} else if(alguien.posicionAnterior() == izquierda) {
 			alguien.position(alguien.position().right(1))
+		}else{
+			alguien.position(alguien.position().down(1))
 		}
 	}
 

@@ -2,7 +2,7 @@ import wollok.game.*
 import pepita.*
 import juego.*
 
-program juego {
+program juegoMarioBross {
 	juego.cargar()
 	game.start()
 }

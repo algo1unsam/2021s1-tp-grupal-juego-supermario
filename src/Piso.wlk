@@ -4,19 +4,22 @@ class Piso {
 
 	var property position
 
-	method imagen() = ""
-
+	method image() = "pisoBase.png"
+	method movimiento(){}
+	method cantidadPasos(){}
 	method choque(alguien) {
+		if (alguien.posicionAnterior() == derecha) {
+			alguien.position(alguien.position().left(1))
+		} else if(alguien.posicionAnterior() == izquierda) {
+			alguien.position(alguien.position().right(1))
+		}else{
+			alguien.position(alguien.position().down(1))
+		}
 	}
 
 }
 class PisoNivel1 inherits Piso{
-	override method imagen()="piso1.png"
-	override method choque(alguien){
-		if (alguien.posicionAnterior() == derecha) {
-			alguien.position(alguien.position().left(1))
-		} else {
-			alguien.position(alguien.position().right(1))
-		}
+	override method image()="ladrillonivel1.png"
+	override method choque(alguien){	
 	}
 }
