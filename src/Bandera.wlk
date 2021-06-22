@@ -1,66 +1,46 @@
-import wollok.game.*
-import Malo.*
+import direcciones.*
 import mario.*
+import wollok.game.*
+import juego.*
+import monedas.*
+import Niveles.*
 
-object derecha {
+class Bandera {
+	var property nombre ="bandera"
+	var property position
+	var property stageanterior
+	var cantidad = null
+	var posicion = []
+	method image() = "bandera.png"
+	
 
-	method chocaCon(algo) {
-	}
-	method movimientoDerecha(alguien) {
-		alguien.position(alguien.position().right(1))
-		alguien.posicionAnterior(self)
-	}
-	method teMueres() {
-	}
-}
-
-object izquierda {
-
-	method chocaCon(algo) {
-	}
-
-	method movimientoIzquierda(alguien) {
-	alguien.position(alguien.position().left(1))
-	alguien.posicionAnterior(self)
-	}
-
-	method teMueres() {
-	}
-
-}
-object arriba {
-
-	method chocaCon(algo) {
-	}
-	method movimientoArriba(alguien) {
-		alguien.position(alguien.position().up(3))
-		alguien.posicionAnterior(self)
-	}
-	method teMueres() {
-	}
-}
- 
-object gravedad {
-
-	method nombre() = self
-	method bajar(personaje) {
-			personaje.forEach{alguien =>self.comprueboPosicion(alguien)}
+	method cambioStague(){
+		if(stageanterior==juego){
+			game.clear()
+		 stage1.cargar()
+		 mario.position(mario.positionOriginal())
+		}else{
+				game.clear()
 		}
 		
-		method comprueboPosicion(algo)
-		{
-			if( game.getObjectsIn(algo.position().down(1)).isEmpty()){
-				self.muevo(algo)
-			}
+	}
+	method chocaCon(algo) {
+	//	return self.cambioStague()
+	}
+	method crearMoneda(pos){
+		
+		posicion.addAll(pos)
+		self.monedasFaltantes(pos.size())
+		posicion.forEach{ p => game.addVisual(new Monedas(position = p))}
+	}
+	method monedasFaltantes(param1) {
+		cantidad = param1
+	}
+	method restarMonedas() {
+		cantidad -= 1
+		if (cantidad == 0) {
+			juego.dibujar(self)
 			
 		}
-
-	method teMueres() {
 	}
-
-	method muevo(alguien) {
-	  alguien.position(alguien.position().down(1))
-		
-	}
-	
 }

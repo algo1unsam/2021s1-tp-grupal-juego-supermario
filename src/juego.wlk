@@ -7,6 +7,7 @@ import Malo.*
 import pared.*
 import Bandera.*
 import Niveles.*
+import audio.*
 
 object juego {
 
@@ -19,9 +20,11 @@ object juego {
 		const largo = game.height() - 1
 		const posPared = []
 		const mobs = []
-			// mario.positionOriginal(game.at(1, 3))
-			// AGREGO A Mario Bross
+		 mario.positionOriginal(game.at(1, 3))
+		// AGREGO A Mario Bross
 		game.addVisual(mario)
+		game.onTick(1000, "musica", { audio.reproducir()})
+		//game.schedule(0, { audio.reproducir()})
 		self.bordesDelMapa(ancho, largo, posPared)
 			// TECLADO
 		keyboard.left().onPressDo{ izquierda.movimientoIzquierda(mario)}
@@ -31,7 +34,7 @@ object juego {
 			// COLISIONES
 		game.whenCollideDo(mario, { algo => algo.chocaCon(mario)})
 			// resetea para volver a colicionar con 1 malo
-		game.onTick(1000, "conejo pierde 1 vida", { mario.contador()})
+		game.onTick(1000, "mario pierde 1 vida", { mario.contador()})
 		const posPiso = []
 		const bloques = []
 			// zona mapa
@@ -47,7 +50,7 @@ object juego {
 			// mobs
 		const maloHongo = new Malo(imagen = "maloHongo.png", position = game.at(15, 4), cantidadpasosIzquierda = 4, cantidadpasosDerecha = 3, cantidadDePasos = 3)
 		const tortuga = new Malo(imagen = "tortugaVoladora.png", position = game.at(5, 10), cantidadpasosIzquierda = 5, cantidadpasosDerecha = 5, cantidadDePasos = 5)
-		const tortuga2 = new Malo(imagen = "tortugaVoladora.png", position = game.at(22, 12), cantidadpasosIzquierda = 5, cantidadpasosDerecha = 5, cantidadDePasos = 5)
+		const tortuga2 = new Malo(imagen = "tortugaVoladora.png", position = game.at(18, 13), cantidadpasosIzquierda = 5, cantidadpasosDerecha = 5, cantidadDePasos = 5)
 		self.dibujar(maloHongo)
 		self.dibujar(tortuga)
 		self.dibujar(tortuga2)
@@ -64,7 +67,10 @@ object juego {
 		const banderanivel1 = new Bandera(position = game.at(1, 3), stageanterior = self)
 		banderanivel1.crearMoneda([game.at(10,5),game.at(11,5),game.at(12,5),game.at(13,5),game.at(14,5),game.at(15,5),game.at(1,9),game.at(2,9),game.at(3,9),game.at(4,9),game.at(9,13),game.at(10,13),game.at(11,13),game.at(12,13),game.at(13,13)])
 		mario.agregarBandera(banderanivel1)
+		mario.ponerVidas()
+		
 		game.start()
+		audio.reproducir()
 	}
 
 	method dibujar(dibujo) {

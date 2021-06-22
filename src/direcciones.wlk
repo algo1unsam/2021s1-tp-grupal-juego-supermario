@@ -33,7 +33,7 @@ object arriba {
 	method chocaCon(algo) {
 	}
 	method movimientoArriba(alguien) {
-		alguien.position(alguien.position().up(3))
+		alguien.position(alguien.position().up(2))
 		alguien.posicionAnterior(self)
 	}
 	method teMueres() {
@@ -64,3 +64,4 @@ object gravedad {
 	}
 	
 }
+
