@@ -1,9 +1,10 @@
 import wollok.game.*
 import juego.*
-import Niveles.*
+
 
 program juegoMarioBross {
-	inicio.cargar()
-	
+	//inicio es inicio.cargar()
+	//ultimo nivel es stage1.cargar()
+	juego.cargar()
 	game.start()
 }

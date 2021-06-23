@@ -78,7 +78,7 @@ object stage1 {
 		banderanivel1.crearPalanca(game.at(3,3),slavones)
 		mario.agregarBandera(banderanivel1)
 		mario.ponerVidas()
-		game.start()
+		
 	}
 
 	method bordesDelMapa(ancho, largo, posPared) {

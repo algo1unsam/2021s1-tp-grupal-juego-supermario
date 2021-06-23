@@ -60,10 +60,13 @@ object mario {
 	method teMueres() {
 		if (puntos == 0) {
 			audio.parar()
-			audio.reproducirpierdes()
-			audio.reproducir()
+
+			
+			perdiste.cargar()
+			/*audio.reproducir()
 			position = positionOriginal
 			game.clear()
+
 			perdiste.cargar()
 			/*juego.cargar()
 			puntos = 3

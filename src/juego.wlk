@@ -71,7 +71,7 @@ object juego {
 		banderanivel1.crearMoneda([ game.at(10,5), game.at(11,5), game.at(12,5), game.at(13,5), game.at(14,5), game.at(15,5), game.at(1,9), game.at(2,9), game.at(3,9), game.at(4,9), game.at(9,13), game.at(10,13), game.at(11,13), game.at(12,13), game.at(13,13) ])
 		mario.agregarBandera(banderanivel1)
 		mario.ponerVidas()
-		game.start()
+		
 		audio.reproducir()
 	}
 
@@ -132,6 +132,8 @@ object perdiste {
 		game.height(16)
 		game.width(25)
 		game.boardGround("gameover.jpg")
+
+		audio.reproducirpierdes()
 		
 		}
 		}
