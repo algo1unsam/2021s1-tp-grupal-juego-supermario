@@ -76,4 +76,7 @@ class Malo {
 	}
 
 }
+class Boss inherits Malo{
+	
+}
 

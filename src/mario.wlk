@@ -64,13 +64,15 @@ object mario {
 			audio.reproducir()
 			position = positionOriginal
 			game.clear()
-			juego.cargar()
+			perdiste.cargar()
+			/*juego.cargar()
 			puntos = 3
-			self.ponerVidas()
+			self.ponerVidas()*/
 		} else {
 			self.restarVida()
 		}
 	}
+
 
 	method restarVida() {
 		var vidaPerdida = null

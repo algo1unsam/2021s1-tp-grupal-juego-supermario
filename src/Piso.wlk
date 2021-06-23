@@ -1,5 +1,6 @@
 import direcciones.*
 import juego.*
+import wollok.game.*
 
 class Piso {
 
@@ -8,6 +9,7 @@ class Piso {
 	method image() = "pisoBase.png"
 	method movimiento(){}
 	method cantidadPasos(){}
+	method chocaCon(param1){}
 	method choque(alguien) {
 		if (alguien.posicionAnterior() == derecha) {
 			alguien.position(alguien.position().left(1))
@@ -28,9 +30,10 @@ class PisoCueva inherits Piso{
 	override method image()="bloquecueva.png"
 	override method choque(alguien){	
 	}
+	
 }
-class Slavon{
-	method image()="slavon.png"
+class Slavon inherits Piso{
+	method image()="puente.png"
 	method choque(alguien){
 		if (alguien.posicionAnterior() == arriba) {
 			alguien.position(alguien.position().up(1))
@@ -38,30 +41,17 @@ class Slavon{
 }
 
 }
-object puente{
-	var property slavones=[]
-	var property position
-	var property image="palanca.png"
-	method agregoSlavon(variosSlavones){
-		variosSlavones.addAll(variosSlavones)
-		variosSlavones.forEach{sl=>juego.dibujar(sl)}
-	}
-	method borroTodo(){
-		slavones.forEach{s=>self.eliminarSlavon(s)}
-		
-	}	
-	method choque(alguien){
-		self.borroTodo()
-	}
-	method eliminarSlavon(unSlavon){
-		juego.dibujar(unSlavon)
-		slavones.remove(unSlavon)
-	}
-}
-class Lava{
-	var property position
-	var property image="palanca.png"
+
+class Lava inherits Piso{
+	method image()="lava.png"
 	method choque(alguien){
 		alguien.teMueres()
 	}
+	method alguienArriba(){
+		if(!game.getObjectsIn(self.position().up(1)).isEmpty()){
+			game.getObjectsIn(self.position().up(1)).teMueres()
+		}
+	}
+	
+	
 }
