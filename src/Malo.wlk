@@ -2,20 +2,23 @@ import direcciones.*
 import mario.*
 import wollok.game.*
 
-class malo {
+class Malo {
+
 	var imagen
 	var property cantidadpasosIzquierda
 	var property cantidadpasosDerecha
 	var property position
-	var property posicionAnterior = null
-	var property cantidadDePasos = null
+	var property posicionAnterior = 0
+	var property cantidadDePasos = 0
 	var property tiempo = 3
+	var positionOriginal =null
 
 	method image() = imagen
 
 	method nombre() = self
-
+	method agarrar(unObjeto){}
 	method movimiento() {
+		
 		self.movimientoIzquierda()
 		self.movimientoDerecha()
 		if (cantidadpasosIzquierda == 0 && cantidadpasosDerecha == 0) {
@@ -31,7 +34,7 @@ class malo {
 	}
 
 	method movimientoDerecha() {
-		if (cantidadpasosIzquierda == 0) {
+		if (cantidadpasosIzquierda == 0 and cantidadpasosDerecha!=0) {
 			derecha.movimientoDerecha(self)
 			cantidadpasosDerecha--
 		}
@@ -69,6 +72,11 @@ class malo {
 			derecha.movimientoDerecha(self)
 		}
 	}
-	
+	method chocoConMalo(param1) {
+	}
+
+}
+class Boss inherits Malo{
 	
 }
+

@@ -1,0 +1,9 @@
+import wollok.game.*
+import juego.*
+import Niveles.*
+
+program juegoMarioBross {
+	inicio.cargar()
+	
+	game.start()
+}

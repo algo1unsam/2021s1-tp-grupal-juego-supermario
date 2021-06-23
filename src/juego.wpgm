@@ -1,8 +1,0 @@
-import wollok.game.*
-import pepita.*
-import juego.*
-
-program juego {
-	juego.cargar()
-	game.start()
-}

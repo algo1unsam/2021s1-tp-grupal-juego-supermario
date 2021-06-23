@@ -1,3 +1,7 @@
+import wollok.game.*
+import Malo.*
+import mario.*
+
 object derecha {
 
 	method chocaCon(algo) {
@@ -24,3 +28,40 @@ object izquierda {
 	}
 
 }
+object arriba {
+
+	method chocaCon(algo) {
+	}
+	method movimientoArriba(alguien) {
+		alguien.position(alguien.position().up(2))
+		alguien.posicionAnterior(self)
+	}
+	method teMueres() {
+	}
+}
+ 
+object gravedad {
+
+	method nombre() = self
+	method bajar(personaje) {
+			personaje.forEach{alguien =>self.comprueboPosicion(alguien)}
+		}
+		
+		method comprueboPosicion(algo)
+		{
+			if( game.getObjectsIn(algo.position().down(1)).isEmpty()){
+				self.muevo(algo)
+			}
+			
+		}
+
+	method teMueres() {
+	}
+
+	method muevo(alguien) {
+	  alguien.position(alguien.position().down(1))
+		
+	}
+	
+}
+
