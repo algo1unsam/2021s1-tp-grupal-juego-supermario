@@ -132,6 +132,7 @@ object perdiste {
 		game.height(16)
 		game.width(25)
 		game.boardGround("gameover.jpg")
+		audio.reproducirpierdes()
 		
 		}
 		}
